@@ -11,9 +11,9 @@ export const createIssue = (issue: IssueFormValues): Promise<Issue> => {
   return axios.post(API_URL, issue).then(response => response.data.data);
 };
 
-export const updateIssueStatus = (id: string, status: Status): Promise<Issue> => {
-  return axios.patch(`${API_URL}/${id}`, { status }).then(response => response.data.data);
-};
+export const updateIssue = (id: string, updatedValues: IssueFormValues): Promise<Issue> => {
+    return axios.patch(`${API_URL}/${id}`, updatedValues).then(response => response.data.data);
+  };
 
 export const deleteIssue = (id: string): Promise<void> => {
   return axios.delete(`${API_URL}/${id}`).then(() => {});

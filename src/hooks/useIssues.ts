@@ -1,6 +1,8 @@
+// src/hooks/useIssues.ts
+
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { getIssues, createIssue, updateIssueStatus, deleteIssue } from '../services/issuesApi';
-import { Issue, IssueFormValues, Status } from '../interfaces/issue';
+import { getIssues, createIssue, updateIssue, deleteIssue } from '../services/issuesApi';
+import { Issue, IssueFormValues } from '../interfaces/issue';
 
 const useIssues = () => {
   const queryClient = useQueryClient();
@@ -17,8 +19,8 @@ const useIssues = () => {
     },
   });
 
-  const updateIssueMutation = useMutation<Issue, Error, { id: string; status: Status }>({
-    mutationFn: ({ id, status }) => updateIssueStatus(id, status),
+  const updateIssueMutation = useMutation<Issue, Error, { id: string; updatedValues: IssueFormValues }>({
+    mutationFn: ({ id, updatedValues }) => updateIssue(id, updatedValues),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['issues'] });
     },
@@ -36,7 +38,7 @@ const useIssues = () => {
     isLoading,
     isError,
     addIssue: (issueData: IssueFormValues) => addIssueMutation.mutate(issueData),
-    updateIssue: (id: string, status: Status) => updateIssueMutation.mutate({ id, status }),
+    updateIssue: (id: string, updatedValues: IssueFormValues) => updateIssueMutation.mutate({ id, updatedValues }),
     removeIssue: (id: string) => deleteIssueMutation.mutate(id),
   };
 };
