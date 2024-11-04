@@ -1,46 +1,64 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Issue Tracker Frontend
 
-## Available Scripts
+This repository contains the frontend of the Issue Tracker application. It is built with **React**, **TypeScript**, **Material-UI** (MUI), and **Dnd-kit** for drag-and-drop functionality.
 
-In the project directory, you can run:
+## Table of Contents
 
-### `npm start`
+- [Setup Instructions](#setup-instructions)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Setup Instructions
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+To run this project locally, follow these steps:
 
-### `npm test`
+### 1. Prerequisites
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Node.js** and **npm** installed on your machine.
+- **Backend server**: Ensure the backend API server is running and accessible at the base URL `http://localhost:5000`.
 
-### `npm run build`
+### 2. Clone the Repository
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+git clone https://github.com/itslarlee/fusmani-issue-tracker-frontend.git
+cd fusmani-issue-tracker-frontend
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 3. Install Dependencies
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Install the project dependencies using `npm`:
 
-### `npm run eject`
+```bash
+npm install
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### 4. Start the Development Server
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+To start the frontend in development mode, run:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```bash
+npm start
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+The application will open at `http://localhost:3000`.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Features
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- **Create New Issue**: Add a new issue with title, description, status, and priority.
+- **Edit & Delete Issue**: Edit or delete existing issues.
+- **Drag-and-Drop**: Reorder issues between different status columns.
+- **Theming**: Dark mode enabled by Material-UI's theme.
+
+
+## Tech Stack
+
+- **React** with **TypeScript** for building the user interface.
+- **Material-UI** for responsive and accessible UI components.
+- **Dnd-kit** for drag-and-drop interactions within the Kanban board.
+- **React Query** for managing API requests and caching.
+
+## Contributing
+
+This project uses [Conventional Commits](https://www.conventionalcommits.org/) for commit messages. Contributions are welcome!
