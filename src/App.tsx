@@ -1,11 +1,29 @@
-import React from 'react';
-import './App.css';
+import React, { useState } from 'react';
+import { Container, Typography, Button } from '@mui/material';
+import KanbanBoard from './components/KanbanBoard';
+import IssueModal from './components/IssueModal';
 
-function App() {
+const App: React.FC = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
+
   return (
-    <div className="App">
-    </div>
+    <Container maxWidth="lg">
+      <Typography variant="h4" align="center" gutterBottom>
+        Issue Tracker
+      </Typography>
+
+      <Button variant="contained" color="primary" onClick={openModal}>
+        Create New Issue
+      </Button>
+
+      <KanbanBoard />
+
+      <IssueModal open={isModalOpen} onClose={closeModal} />
+    </Container>
   );
-}
+};
 
 export default App;
